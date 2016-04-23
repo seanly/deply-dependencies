@@ -1,0 +1,23 @@
+
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
+
+group = 'xyz.lysean.gradle.deply'
+description = 'Common dependencies for Deply'
+version = "1.0.0"
+
+publishing {
+    publications {
+        deplyDependencies(MavenPublication) {
+            artifact 'src/deply-dependencies.yml'
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            url "$githubSeanlyMvnrepository/gradle-plugins"
+        }
+    }
+}
